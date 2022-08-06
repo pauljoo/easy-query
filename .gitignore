@@ -1,0 +1,9 @@
+#Eclipse Standard
+/target/
+/.settings/
+.classpath
+.project
+.pyc
+*.iml
+.idea
+log/*
