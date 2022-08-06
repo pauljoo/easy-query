@@ -1,0 +1,26 @@
+{
+  "defaultSchema": "db_mysql",
+  "schemas": [
+    {
+      "factory": "org.apache.calcite.adapter.jdbc.JdbcSchema$Factory",
+      "name": "db_mysql",
+      "operand": {
+        "jdbcDriver": "com.mysql.cj.jdbc.Driver",
+        "jdbcUrl": "jdbc:mysql://localhost:3306/test",
+        "jdbcUser": "root",
+        "jdbcPassword": "123456"
+      },
+      "type": "custom"
+    },
+    {
+      "factory": "info.xpanda.dsl.server.mongodb.MongoSchemaFactory",
+      "name": "db_mongo",
+      "operand": {
+        "host": "127.0.0.1:27017",
+        "database": "finance"
+      },
+      "type": "custom"
+    }
+  ],
+  "version": "1.0"
+}

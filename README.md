@@ -8,3 +8,6 @@ Flink 从解析到优化都直接使用了Calcite。
 关系代数(Relational Algebra): RelNode。例如Sort, Join, Project, Filter, Scan, Sample。
 行表达式(Row expressions):
 特征(Trait)
+
+###
+$ docker run -d --name=mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 mysql:5.7
