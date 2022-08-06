@@ -5,15 +5,19 @@ import org.apache.calcite.avatica.remote.Driver;
 import org.apache.calcite.avatica.remote.LocalService;
 import org.apache.calcite.avatica.server.HttpServer;
 import org.eclipse.jetty.server.Server;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
 /**
- * https://github.com/apache/calcite/blob/master/core/src/test/java/org/apache/calcite/jdbc/CalciteRemoteDriverTest.java
+ * https://github.com/sirensolutions/avatica-tls-server/blob/main/src/main/java/io/siren/avatica/TlsServer.java
  *
  * @author Paul Jiang
  */
 public class DslServerApplication {
+    private static final Logger log = LoggerFactory.getLogger(DslServerApplication.class);
+
     private static String model = "{\n" +
             "  \"defaultSchema\": \"db_mysql\",\n" +
             "  \"schemas\": [\n" +
@@ -57,6 +61,17 @@ public class DslServerApplication {
 
         HttpServer server = builder.build();
         server.start();
-        server.join();
+        Runtime.getRuntime().addShutdownHook(
+                new Thread(() -> {
+                    log.info("Stopping server");
+                    server.stop();
+                    log.info("Server stopped");
+                }));
+
+        try {
+            server.join();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 }
