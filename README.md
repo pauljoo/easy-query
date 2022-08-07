@@ -21,7 +21,8 @@ $ docker run -d --name=mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 mysql:5.
 - customer.txt导入mysql(db-mysql.sql)
 - nation.txt导入mongodb(db-mongo.sql)
 
-## 程序启动
+## 程序
+$ mvn clean package -Dmaven.test.skip=true
 $ java -jar dsl-client.jar --spring.config.location=./application.properties
 $ java -jar dsl-server-jar-with-dependencies.jar -m ./dsl-model.json -s ./mongo-schema.json
 
