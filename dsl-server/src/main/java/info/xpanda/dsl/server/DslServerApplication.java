@@ -4,6 +4,7 @@ import org.apache.calcite.avatica.jdbc.JdbcMeta;
 import org.apache.calcite.avatica.remote.Driver;
 import org.apache.calcite.avatica.remote.LocalService;
 import org.apache.calcite.avatica.server.HttpServer;
+import org.apache.commons.cli.*;
 import org.eclipse.jetty.server.Server;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,38 +18,21 @@ import java.util.Properties;
  */
 public class DslServerApplication {
     private static final Logger log = LoggerFactory.getLogger(DslServerApplication.class);
-
-    private static String model = "{\n" +
-            "  \"defaultSchema\": \"db_mysql\",\n" +
-            "  \"schemas\": [\n" +
-            "    {\n" +
-            "      \"factory\": \"org.apache.calcite.adapter.jdbc.JdbcSchema$Factory\",\n" +
-            "      \"name\": \"db_mysql\",\n" +
-            "      \"operand\": {\n" +
-            "        \"jdbcDriver\": \"com.mysql.cj.jdbc.Driver\",\n" +
-            "        \"jdbcUrl\": \"jdbc:mysql://127.0.0.1:3306/test\",\n" +
-            "        \"jdbcUser\": \"root\",\n" +
-            "        \"jdbcPassword\": \"123456\"\n" +
-            "      },\n" +
-            "      \"type\": \"custom\"\n" +
-            "    },\n" +
-            "    {\n" +
-            "      \"factory\": \"info.xpanda.dsl.server.mongodb.MongoSchemaFactory\",\n" +
-            "      \"name\": \"db_mongo\",\n" +
-            "      \"operand\": {\n" +
-            "        \"host\": \"127.0.0.1:27017\",\n" +
-            "        \"database\": \"test\"\n" +
-            "      },\n" +
-            "      \"type\": \"custom\"\n" +
-            "    }\n" +
-            "  ],\n" +
-            "  \"version\": \"1.0\"\n" +
-            "}";
     private static Driver.Serialization serialization = Driver.Serialization.JSON;
 
     public static void main(String[] args) throws Exception {
+        Options options = new Options();
+
+        Option opt = new Option("m", "model", true, "model path");
+        opt.setRequired(true);
+        options.addOption(opt);
+
+        CommandLineParser parser = new DefaultParser();
+        CommandLine commandLine = parser.parse(options, args);
+        String model = commandLine.getOptionValue("m");
+
         Properties config = new Properties();
-        config.put("model", "inline:" + model);
+        config.put("model", model);
         config.put("lex", "MYSQL");
 
         JdbcMeta meta = new JdbcMeta("jdbc:calcite:", config);

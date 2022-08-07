@@ -17,7 +17,7 @@
       "name": "db_mongo",
       "operand": {
         "host": "127.0.0.1:27017",
-        "database": "finance"
+        "database": "test"
       },
       "type": "custom"
     }

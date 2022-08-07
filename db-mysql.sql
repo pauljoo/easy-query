@@ -29,13 +29,3 @@ CREATE TABLE NATION(
        N_REGIONKEY INT NOT NULL,
        N_COMMENT text NOT NULL
 );
-
-load data infile 'orders.txt'
-into table ORDERS
-fields terminated by '|'
-optionally enclosed by '"'
-escaped by ','
-lines terminated by '\r\n'
-ignore 1 lines;
-
-db.NATION.insert({"N_NATIONKEY": 0, "N_NAME": "ALGERIA", "N_REGIONKEY": 0, "N_COMMENT": "haggle. carefully final deposits detect slyly agai"})

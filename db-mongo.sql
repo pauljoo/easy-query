@@ -1,0 +1,27 @@
+use test;
+
+db.NATION.insert({"N_NATIONKEY": 0, "N_NAME": "ALGERIA", "N_REGIONKEY": 0, "N_COMMENT": " haggle. carefully final deposits detect slyly agai"});
+db.NATION.insert({"N_NATIONKEY": 1, "N_NAME": "ARGENTINA", "N_REGIONKEY": 1, "N_COMMENT": "al foxes promise slyly according to the regular accounts. bold requests alon"});
+db.NATION.insert({"N_NATIONKEY": 2, "N_NAME": "BRAZIL", "N_REGIONKEY": 1, "N_COMMENT": "y alongside of the pending deposits. carefully special packages are about the ironic forges. slyly special "});
+db.NATION.insert({"N_NATIONKEY": 3, "N_NAME": "CANADA", "N_REGIONKEY": 1, "N_COMMENT": "eas hang ironic, silent packages. slyly regular packages are furiously over the tithes. fluffily bold"});
+db.NATION.insert({"N_NATIONKEY": 4, "N_NAME": "EGYPT", "N_REGIONKEY": 4, "N_COMMENT": "y above the carefully unusual theodolites. final dugouts are quickly across the furiously regular d"});
+db.NATION.insert({"N_NATIONKEY": 5, "N_NAME": "ETHIOPIA", "N_REGIONKEY": 0, "N_COMMENT": "ven packages wake quickly. regu"});
+db.NATION.insert({"N_NATIONKEY": 6, "N_NAME": "FRANCE", "N_REGIONKEY": 3, "N_COMMENT": "refully final requests. regular, ironi"});
+db.NATION.insert({"N_NATIONKEY": 7, "N_NAME": "GERMANY", "N_REGIONKEY": 3, "N_COMMENT": "l platelets. regular accounts x-ray: unusual, regular acco"});
+db.NATION.insert({"N_NATIONKEY": 8, "N_NAME": "INDIA", "N_REGIONKEY": 2, "N_COMMENT": "ss excuses cajole slyly across the packages. deposits print aroun"});
+db.NATION.insert({"N_NATIONKEY": 9, "N_NAME": "INDONESIA", "N_REGIONKEY": 2, "N_COMMENT": " slyly express asymptotes. regular deposits haggle slyly. carefully ironic hockey players sleep blithely. carefull"});
+db.NATION.insert({"N_NATIONKEY": 10, "N_NAME": "IRAN", "N_REGIONKEY": 4, "N_COMMENT": "efully alongside of the slyly final dependencies. "});
+db.NATION.insert({"N_NATIONKEY": 11, "N_NAME": "IRAQ", "N_REGIONKEY": 4, "N_COMMENT": "nic deposits boost atop the quickly final requests? quickly regula"});
+db.NATION.insert({"N_NATIONKEY": 12, "N_NAME": "JAPAN", "N_REGIONKEY": 2, "N_COMMENT": "ously. final, express gifts cajole a"});
+db.NATION.insert({"N_NATIONKEY": 13, "N_NAME": "JORDAN", "N_REGIONKEY": 4, "N_COMMENT": "ic deposits are blithely about the carefully regular pa"});
+db.NATION.insert({"N_NATIONKEY": 14, "N_NAME": "KENYA", "N_REGIONKEY": 0, "N_COMMENT": " pending excuses haggle furiously deposits. pending, express pinto beans wake fluffily past t"});
+db.NATION.insert({"N_NATIONKEY": 15, "N_NAME": "MOROCCO", "N_REGIONKEY": 0, "N_COMMENT": "rns. blithely bold courts among the closely regular packages use furiously bold platelets?"});
+db.NATION.insert({"N_NATIONKEY": 16, "N_NAME": "MOZAMBIQUE", "N_REGIONKEY": 0, "N_COMMENT": "s. ironic, unusual asymptotes wake blithely r"});
+db.NATION.insert({"N_NATIONKEY": 17, "N_NAME": "PERU", "N_REGIONKEY": 1, "N_COMMENT": "platelets. blithely pending dependencies use fluffily across the even pinto beans. carefully silent accoun"});
+db.NATION.insert({"N_NATIONKEY": 18, "N_NAME": "CHINA", "N_REGIONKEY": 2, "N_COMMENT": "c dependencies. furiously express notornis sleep slyly regular accounts. ideas sleep. depos"});
+db.NATION.insert({"N_NATIONKEY": 19, "N_NAME": "ROMANIA", "N_REGIONKEY": 3, "N_COMMENT": "ular asymptotes are about the furious multipliers. express dependencies nag above the ironically ironic account"});
+db.NATION.insert({"N_NATIONKEY": 20, "N_NAME": "SAUDI ARABIA", "N_REGIONKEY": 4, "N_COMMENT": "ts. silent requests haggle. closely express packages sleep across the blithely"});
+db.NATION.insert({"N_NATIONKEY": 21, "N_NAME": "VIETNAM", "N_REGIONKEY": 2, "N_COMMENT": "hely enticingly express accounts. even, final "});
+db.NATION.insert({"N_NATIONKEY": 22, "N_NAME": "RUSSIA", "N_REGIONKEY": 3, "N_COMMENT": " requests against the platelets use never according to the quickly regular pint"});
+db.NATION.insert({"N_NATIONKEY": 23, "N_NAME": "UNITED KINGDOM", "N_REGIONKEY": 3, "N_COMMENT": "eans boost carefully special requests. accounts are. carefull"});
+db.NATION.insert({"N_NATIONKEY": 24, "N_NAME": "UNITED STATES", "N_REGIONKEY": 1, "N_COMMENT": "y final packages. slow foxes cajole quickly. quickly silent platelets breach ironic accounts. unusual pinto be"});
