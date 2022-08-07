@@ -13,7 +13,7 @@
       "type": "custom"
     },
     {
-      "factory": "info.xpanda.dsl.server.mongodb.MongoSchemaFactory",
+      "factory": "info.demo.dsl.server.mongodb.MongoSchemaFactory",
       "name": "db_mongo",
       "operand": {
         "host": "127.0.0.1:27017",
