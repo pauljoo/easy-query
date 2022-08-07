@@ -63,6 +63,8 @@ limit 10
 http://127.0.0.1:8080/jdbc/avatica?sql=Select%20C_NAME,Count(O_ORDERKEY)%20as%20cnt%20From%20(%20Select%20o.O_ORDERKEY,c.C_CUSTKEY,c.C_NAME%20from%20db_mysql.ORDERS%20o%20Left%20join%20db_mysql.CUSTOMER%20c%20On%20o.O_CUSTKEY%20%3D%20c.C_CUSTKEY%20)t%20Group%20by%20C_NAME%20Having%20Count(O_ORDERKEY)%20%3E%200%20order%20by%20cnt%20desc%20limit%2010
 
 ### 性能测试
+执行计划,CBO,物化视图
+
 $ ab -n 1000 -c 100 http://127.0.0.1:8080/jdbc/avatica?sql=select%20*%20from%20ORDERS%20limit%2010
 
 $ ab -n 1000 -c 100 http://127.0.0.1:8080/jdbc/mysql?sql=select%20*%20from%20ORDERS%20limit%2010
