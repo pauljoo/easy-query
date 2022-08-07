@@ -16,6 +16,7 @@
  */
 package info.xpanda.dsl.server.mongodb;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableMap;
 import com.mongodb.MongoClient;
@@ -27,6 +28,7 @@ import org.apache.calcite.schema.Table;
 import org.apache.calcite.schema.impl.AbstractSchema;
 import org.apache.calcite.sql.type.SqlTypeName;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -37,14 +39,29 @@ import java.util.concurrent.ConcurrentHashMap;
  * is a MONGO file in that directory.
  */
 public class MongoSchema extends AbstractSchema {
+    /**
+     * Map<String, SqlTypeName> table = new HashMap<>();
+     *         table.put("N_NATIONKEY", SqlTypeName.INTEGER);
+     *         table.put("N_NAME", SqlTypeName.VARCHAR);
+     *         table.put("N_REGIONKEY", SqlTypeName.INTEGER);
+     *         table.put("N_COMMENT", SqlTypeName.VARCHAR);
+     *         TABLES.put("NATION", table);
+     */
     private static Map<String, Map<String, SqlTypeName>> TABLES = new ConcurrentHashMap<>();
-    static {
-        Map<String, SqlTypeName> table = new HashMap<>();
-        table.put("N_NATIONKEY", SqlTypeName.INTEGER);
-        table.put("N_NAME", SqlTypeName.VARCHAR);
-        table.put("N_REGIONKEY", SqlTypeName.INTEGER);
-        table.put("N_COMMENT", SqlTypeName.VARCHAR);
-        TABLES.put("NATION", table);
+
+    public static void load(File file) throws Exception{
+        ObjectMapper om = new ObjectMapper();
+        Map<String, Map<String, String>> tables = om.readValue(file, Map.class);
+        for(Map.Entry<String, Map<String, String>> table : tables.entrySet()){
+            String name = table.getKey();
+            Map<String, String> rowType = table.getValue();
+
+            Map<String, SqlTypeName> tableSchema = new HashMap<>();
+            for(Map.Entry<String, String> row : rowType.entrySet()) {
+                tableSchema.put(row.getKey(), SqlTypeName.valueOf(row.getValue()));
+            }
+            TABLES.put(name, tableSchema);
+        }
     }
     final MongoDatabase mongoDb;
 

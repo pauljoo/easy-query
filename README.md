@@ -23,7 +23,7 @@ $ docker run -d --name=mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 mysql:5.
 
 ## 程序启动
 $ java -jar dsl-client.jar --spring.config.location=./application.properties
-$ java -jar dsl-server-jar-with-dependencies.jar -m dsl-model.json
+$ java -jar dsl-server-jar-with-dependencies.jar -m ./dsl-model.json -s ./mongo-schema.json
 
 ### 功能测试
 ```

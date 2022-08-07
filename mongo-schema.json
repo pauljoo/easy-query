@@ -1,0 +1,8 @@
+{
+  "NATION": {
+    "N_NATIONKEY": "INTEGER",
+    "N_NAME": "VARCHAR",
+    "N_REGIONKEY": "INTEGER",
+    "N_COMMENT": "VARCHAR"
+  }
+}
